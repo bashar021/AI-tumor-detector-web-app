@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="static/styles/Homepage.css" /> -->
+    <title>Home</title>
+    <style>
+        body {margin: 0px;padding: 0px;}
+        #main_body_cont {
+
+            /* background-color: rgb(77, 74, 74); */
+            background-image: url("static/images/web-app-bg.webp");
+            background-repeat: no-repeat;
+            background-size:cover;
+
+           
+            width: 100%;
+            height: 80vh;
+            padding-top: 10%;
+            text-align: center;
+
+        }
+        #parent_about_main{
+           
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+        #main_body_cont h2{
+            margin-bottom: 10%;
+            /* margin-left: 10%; */
+        }
+
+        #form_box {
+            width: 30%;
+            margin: auto;
+            margin-left: 55%;
+            margin-top: 5%;
+            background-color: rgba(13, 14, 14, 0.052);
+            text-align: center;
+            /* color: red; */
+            color: black;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            border-radius: 25px;
+
+        }
+        #form_box button{
+            /* padding: 0 2% 0 2%; */
+            padding-left: 2%;
+            padding-right: 2%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            font-size: 1vw;
+        }
+
+        #patient_image {
+            opacity: 0.0;
+            font-size: 5px;
+            height: 100%;
+            margin: 0px;
+            padding: 10%;
+            background-color: transparent;
+        }
+
+        #box_input {
+            position: absolute;
+            left: 0px;
+            padding: 0px;
+            background-color: rgba(0, 0, 0, 0.148);
+            border-radius: 25px;
+            height: fit-content;
+            width: fit-content;
+
+        }
+
+        #box_input_cont {
+            width: 30%;
+            margin: auto;
+            text-align: center;
+            /* background-color: blueviolet; */
+            background-color: rgba(0, 0, 0, 0.139);
+            /* border-color: ; */
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+            
+            position: relative;
+            height: fit-content;
+        }
+
+        #input_title {
+            margin: 0px;
+            padding: 0px;
+            font-size: 1.5vw;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+
+        }
+        #feedback_form{
+            text-align: center;
+        }
+        #feedback_form p{
+            font-size: 2vw;
+
+        }
+        #feedback_form input{
+            font-size: 1.5vw;
+            margin-left: 5%;
+            margin-right: 5%;
+
+        }
+        footer{
+            /* background-color: rgba(35, 35, 36, 0.946); */
+            {% comment %} background-image: linear-gradient(#daebfa,#1d1d1ed1); {% endcomment %}
+           
+            /* background-color: transparent; */
+        }
+        #footer_box{
+            /* background-color: aqua; */
+            /* background-image: url("static/images/web-app-footer-tranparent-bg.png"); */
+            /* background-size: contain; */
+
+        }
+        #about_cont p{
+            text-align: center;
+            
+
+        }
+        #about_heading{
+            font-size: 2.5vw;
+            font-weight: bolder;
+
+        }
+        #lef_about_box{
+            /* float: left; */
+            width: 36%;
+            display: inline-block;
+            text-align: center;
+            margin-left: 6%;
+            /* background-color: rgba(0, 0, 0, 0.157); */
+            background-color: rgba(117, 114, 114, 0.157);
+            padding: 2%;
+            font-size: 1.5vw;
+            height: 50vh;
+            border-radius: 40px;
+            font-weight:500;
+        }
+
+        #right_about_box{
+            /* float: right; */
+            display: inline-block;
+            width: 36%;
+            height: 50vh;
+            text-align: center;
+            margin: 6%;
+            background-color: rgba(117, 114, 114, 0.157);
+            padding: 2%;
+            font-size: 1.5vw;
+            border-radius: 40px;
+            font-weight:500;
+        }
+        #about_cont_box{
+            /* display: flex; */
+
+
+        }
+        #feedback_form{
+            padding-top: 2%;
+            padding-bottom: 4%;
+        }
+        #feedback_form input{
+            background-color: transparent;
+            border-style: none;
+            border-bottom-style: solid;
+            border-color: black;
+            outline: none;
+        }
+        #feedback_form textarea{
+            background-color: transparent;
+            border-color: black;
+            outline: none;
+            font-size: 1vw;
+        }
+        #feedback_form button{
+            font-size: 1.3vw;
+            /* padding: 1%; */
+            padding-left: 1%;
+            padding-right: 1%;
+            padding-top: 0.5%;
+            padding-bottom: 0.5%;
+            border-radius: 25px;
+
+        }
+        #feeback_text{
+            margin-top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top_nav_cont">
+
+    </div>
+    {% comment %} <div id="parent_about_main"> {% endcomment %}
+    <div id="main_body_cont">
+        
+        <div id="form_box">
+            <h2>Upload Your Image </h2>
+            <form method="post"  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form}}
+                <div id="box_input_cont">
+                    <!-- <p id="input_title">Upload here</p> -->
+                    <label id="input_title" for="patient_image">Select File</label>
+                        <input id="patient_image" name="patient_image" type="file" ><br>
+                </div><br>
+                <button type="submit">Get your Diagnosis</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="about_cont">
+        <p id="about_heading">About Us</p>
+        <div id="about_cont_box">
+            <div id="lef_about_box">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos totam, voluptatem quaerat tempora amet aspernatur voluptatum fugiat illum eos in? Velit modi molestias explicabo quibusdam officia sapiente veniam eos error.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nulla veniam, sit repudiandae delectus sed quia, quae labore repellendus nemo in eveniet non qui cupiditate! Quas exercitationem adipisci ullam labore.</p>
+            
+            </div>
+            <div id="right_about_box">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia expedita? Laboriosam officiis harum dignissimos consectetur mollitia itaque in iusto, quaerat accusamus obcaecati, dolore optio quibusdam et, quidem sint</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit vero iusto dignissimos illo blanditiis est eum, nulla asperiores, optio quidem reprehenderit obcaecati iure ipsum a recusandae assumenda magni numquam </p>
+                <!-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum expedita dolorem velit, cupiditate repellendus tenetur amet! Officiis, tempora aut nam illum, corrupti maxime laboriosam est hic a quasi rerum vero! -->
+            </div>
+        </div>
+       
+    {% comment %} </div> {% endcomment %}
+
+    
+    </div>
+    <footer>
+        <div id="footer_box">
+            <div id="feedback_form">
+                <p id="feeback_text">Feedback</p>
+                <form action="">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <p> <textarea name="" id="" cols="30" rows="10" ></textarea></p>   
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+        </div>
+
+        
+    </footer>
+
+
+
+   
+</body>
+
+</html

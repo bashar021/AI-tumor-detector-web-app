@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        #parent_cont_diagnosis{
+            width: 98vw;
+            height: 99vh;
+            /* background-color:aqua; */
+            /* background-image: radial-gradient(grey,grey,black); */
+            /* background-image: linear-gradient(#04166eb8,#1c5e7cb8); */
+            padding-top: 2vh;
+            position: fixed;
+            display: flex;
+            /* color: white; */
+            color: black;
+
+        }
+        .diagnosis_childs{
+            /* display: inline-block; */
+            /* width: 45%; */
+
+            /* background-color: rgba(240, 255, 255, 0.622); */
+            /* background-color: #e1f5fef2; */
+            border-radius: 30px;
+            /* margin-top: 10vh; */
+
+            margin: auto;
+            margin-left: 2.2%;
+            margin-right: 2.2%;
+        }
+        #pateint_image_cont{
+            width: 80%;
+            /* margin-top: 5%; */
+            /* padding-top: 20%; */
+            /* height: 80%; */
+            padding-top: 10%;
+            margin: auto;
+            object-fit: contain;
+        }
+        #user_img{
+            width:100%;
+            height: 80%;
+            margin: auto;
+        }
+        #image_view_cont{
+            width: 45%;
+            height: 80vh;
+              /* background-color: #b1dff562; */
+              background-color: rgba(0, 0, 0, 0.086);
+            /* height: 72%; */
+        }
+        #image_diagnosis_data_cont{
+            width: 40%;
+            padding: 2%;
+            height: 74%;
+        }
+    </style>
+ </head>
+ <body>
+    <div id="parent_cont_diagnosis">
+        <div class="diagnosis_childs" id="image_view_cont">
+            <div id="pateint_image_cont">
+                {% if img_url %}  
+                <img id='user_img' src="{{ img_url}}" alt="connect" >  
+                {% endif %} 
+            </div> 
+        </div>
+
+
+        <div class="diagnosis_childs" id="image_diagnosis_data_cont">
+            <h2>Your Diagnosis Report </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, numquam. Quod possimus facere molestias vel, maxime aperiam sint velit animi explicabo, rem nam, non totam numquam soluta. Aliquam, corrupti nam.</p>
+
+        </div>
+
+    </div>
+ </body>
+ </html>
+ 
+ 
+ 
